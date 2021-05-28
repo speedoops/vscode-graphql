@@ -1,0 +1,86 @@
+{
+	"name": "vscode-graphql",
+	"displayName": "Speedo GraphQL",
+	"description": "Speed up graphql editing",
+	"version": "0.0.1",
+	"publisher": "speedoops",
+	"author": "Speedoops <@Speedoops>",
+	"galleryBanner": {
+		"color": "#ffe04b",
+		"theme": "light"
+	},
+	"homepage": "https://marketplace.visualstudio.com/items?itemName=speedoops.vscode-graphql",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/speedoops/vscode-graphql.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/speedoops/vscode-graphql/issues"
+	},
+	"engines": {
+		"vscode": "^1.56.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "graphql",
+				"extensions": [
+					".graphql"
+				]
+			}
+		],
+		"commands": [
+			{
+				"command": "vscode-graphql.helloWorld",
+				"title": "Hello World"
+			},
+			{
+				"command": "vscode-graphql.convertToCamelCase",
+				"title": "Convert FieldName to Camel Case"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "vscode-graphql.convertToCamelCase",
+					"when": "editorHasSelection and resourceLangId == graphql"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "vscode-graphql.convertToCamelCase",
+					"group": "graphql"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.56.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.19.0",
+		"@typescript-eslint/eslint-plugin": "^4.14.1",
+		"@typescript-eslint/parser": "^4.14.1",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"typescript": "^4.1.3",
+		"vscode-test": "^1.5.0"
+	}
+}
