@@ -26,12 +26,20 @@ export function activate(context: vscode.ExtensionContext) {
 
 		const editor = vscode.window.activeTextEditor
 		if (editor) {
-			editor.edit(editBuilder => {
-				editor.selections.forEach(selection => {
-					const text = editor.document.getText(selection)
-					editBuilder.replace(selection, convertToCamelCase(text))
+			if (!editor.selection.isEmpty) {
+				editor.edit(editBuilder => {
+					editor.selections.forEach(selection => {
+						const text = editor.document.getText(selection)
+						editBuilder.replace(selection, convertToCamelCase(text))
+					})
 				})
-			})
+			} else {
+				let firstLine = editor.document.lineAt(0);
+				let lastLine = editor.document.lineAt(editor.document.lineCount - 1);
+				let textRange = new vscode.Range(firstLine.range.start, lastLine.range.end);
+				let newText = editor.document.getText(textRange);
+				editor.edit(edit => edit.replace(textRange, convertToCamelCase(newText)));
+			}
 		}
 	});
 	context.subscriptions.push(disposable);

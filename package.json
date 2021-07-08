@@ -1,7 +1,7 @@
 {
 	"name": "vscode-graphql",
-	"displayName": "Speedo GraphQL",
-	"description": "Speed up graphql editing",
+	"displayName": "GraphQL Format",
+	"description": "Simple extension to convert field names to camel case in GraphQL schema",
 	"version": "0.0.1",
 	"publisher": "speedoops",
 	"author": "Speedoops <@Speedoops>",
@@ -40,27 +40,35 @@
 		"commands": [
 			{
 				"command": "vscode-graphql.helloWorld",
-				"title": "Hello World"
+				"title": "GraphQL: Show Hello Message"
 			},
 			{
 				"command": "vscode-graphql.convertToCamelCase",
-				"title": "Convert FieldName to Camel Case"
+				"title": "GraphQL: Convert To Camel Case"
 			}
 		],
 		"menus": {
 			"commandPalette": [
 				{
 					"command": "vscode-graphql.convertToCamelCase",
-					"when": "editorHasSelection and resourceLangId == graphql"
+					"when": "editorHasSelection && resourceLangId == graphql"
 				}
 			],
 			"editor/context": [
 				{
 					"command": "vscode-graphql.convertToCamelCase",
+					"when": "editorHasSelection && resourceLangId == graphql",
 					"group": "graphql"
 				}
 			]
-		}
+		},
+		"keybindings": [
+			{
+				"key": "shift+alt+c",
+				"command": "vscode-graphql.convertToCamelCase",
+				"when": "editorFocus && resourceLangId == graphql"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
