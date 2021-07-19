@@ -125,7 +125,7 @@ var convertToUpperCase = function (str: string) {
 		// AsSpecifiedByCluster=	|A|sSpecifiedByCluster
 		// VMId: String=	|VMI|d: String
 		console.log(a + "=" + b + "|" + c + "|" + d);
-		if (c.length !== 1) {
+		if (c.length !== 1 && d.length !== 0) {
 			c = c.substring(0, c.length - 1) + "_" + c.substr(-1);
 		}
 		d = String(d).replace(/([a-z])([A-Z])/gm, function (_, d2, d3) {

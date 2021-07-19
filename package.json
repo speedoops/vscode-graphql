@@ -2,7 +2,7 @@
 	"name": "vscode-graphql",
 	"displayName": "GraphQL Format",
 	"description": "Simple extension to convert field names to camel case in GraphQL schema",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "speedoops",
 	"author": "Speedoops <@Speedoops>",
 	"galleryBanner": {
