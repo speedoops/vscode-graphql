@@ -45,11 +45,11 @@
 		"commands": [
 			{
 				"command": "vscode-graphql.convertToCamelCase",
-				"title": "GraphQL: Convert To Camel Case"
+				"title": "GraphQL: Convert To camelCase"
 			},
 			{
 				"command": "vscode-graphql.convertToUpperCase",
-				"title": "GraphQL: Convert To Upper Case"
+				"title": "GraphQL: Convert To UPPER_CASE"
 			}
 		],
 		"menus": {
