@@ -22,29 +22,34 @@
 		"vscode": "^1.56.0"
 	},
 	"categories": [
-		"Other"
+		"Formatters"
 	],
 	"activationEvents": [
-		"onStartupFinished"
+		"onLanguage:graphql"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"languages": [
 			{
 				"id": "graphql",
+				"aliases": [
+					"GraphQL",
+					"gql"
+				],
 				"extensions": [
+					".gql",
 					".graphql"
 				]
 			}
 		],
 		"commands": [
 			{
-				"command": "vscode-graphql.helloWorld",
-				"title": "GraphQL: Show Hello Message"
-			},
-			{
 				"command": "vscode-graphql.convertToCamelCase",
 				"title": "GraphQL: Convert To Camel Case"
+			},
+			{
+				"command": "vscode-graphql.convertToUpperCase",
+				"title": "GraphQL: Convert To Upper Case"
 			}
 		],
 		"menus": {
@@ -52,11 +57,20 @@
 				{
 					"command": "vscode-graphql.convertToCamelCase",
 					"when": "editorHasSelection && resourceLangId == graphql"
+				},
+				{
+					"command": "vscode-graphql.convertToUpperCase",
+					"when": "editorHasSelection && resourceLangId == graphql"
 				}
 			],
 			"editor/context": [
 				{
 					"command": "vscode-graphql.convertToCamelCase",
+					"when": "editorHasSelection && resourceLangId == graphql",
+					"group": "graphql"
+				},
+				{
+					"command": "vscode-graphql.convertToUpperCase",
 					"when": "editorHasSelection && resourceLangId == graphql",
 					"group": "graphql"
 				}

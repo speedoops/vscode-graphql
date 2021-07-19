@@ -1,11 +1,12 @@
-# vscode-graphql README
+# vscode-graphql
 
-This is a GraphQL schema editing extension for vscode.
+This is a simple GraphQL schema format extension for vscode.
 
 ## Features
 
 Convert type field names in graphql schema to Camel Case.
 
+![Usage Gif](/img/preview.gif)
 
 ## Release Notes
 
